@@ -11,8 +11,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.molin.fastec.example.MainActivity">
 
-    <TextView
+    <com.joanzapata.iconify.widget.IconTextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:layout_centerInParent="true"
+        android:id="@+id/icon_test"
+        android:text="{fa-angellist}"
+        tools:ignore="HardcodedText"
+        android:layout_height="wrap_content"/>
+
 </RelativeLayout>
