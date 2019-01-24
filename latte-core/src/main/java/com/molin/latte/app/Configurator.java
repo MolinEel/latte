@@ -61,7 +61,6 @@ public class Configurator {
             for (int i = 1; i < ICONS.size(); i++) {
                 initializer.with(ICONS.get(i));
             }
-            Log.e(TAG,"到这里？");
         }
     }
 
