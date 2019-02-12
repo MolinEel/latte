@@ -2,14 +2,12 @@ package com.molin.latte.ui;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatDialog;
-import android.support.v7.widget.ContentFrameLayout;
 import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.molin.latte.R;
-import com.molin.latte.app.Latte;
-import com.molin.latte.util.DimenUtil;
+import com.molin.latte.util.dimen.DimenUtil;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;

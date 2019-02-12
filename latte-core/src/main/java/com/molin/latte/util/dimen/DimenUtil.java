@@ -1,4 +1,4 @@
-package com.molin.latte.util;
+package com.molin.latte.util.dimen;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
