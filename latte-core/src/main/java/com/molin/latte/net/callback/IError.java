@@ -6,5 +6,5 @@ package com.molin.latte.net.callback;
 
 public interface IError {
 
-    void onError(String response);
+    void onError(int code, String msg);
 }

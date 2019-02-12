@@ -1,5 +1,6 @@
 package com.molin.latte.app;
 
+import android.app.Application;
 import android.content.Context;
 
 import java.util.HashMap;
@@ -13,11 +14,20 @@ public final class Latte {
 
 
     public static Configurator init(Context context) {
-        getConfiguraations().put(ConfigKeys.APPLICATION_CONTEXT.name(), context);
+        Configurator.getInstance().getLatteConfigs()
+                .put(ConfigKeys.APPLICATION_CONTEXT, context);
         return Configurator.getInstance();
     }
 
-    public static HashMap<Object, Object> getConfiguraations() {
-        return Configurator.getInstance().getLatteConfigs();
+    public static Configurator getConfigurator() {
+        return Configurator.getInstance();
+    }
+
+    public static <T> T getConfiguration(Object key) {
+        return getConfigurator().getConfiguration(key);
+    }
+
+    public static Application getApplicationContext() {
+        return getConfiguration(ConfigKeys.APPLICATION_CONTEXT);
     }
 }

@@ -1,6 +1,7 @@
 package com.molin.latte.net;
 
 import java.util.Map;
+import java.util.WeakHashMap;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -24,22 +25,22 @@ import retrofit2.http.Url;
 public interface RestService {
 
     @GET
-    Call<String> get(@Url String url, @QueryMap Map<String, String> params);
+    Call<String> get(@Url String url, @QueryMap WeakHashMap<String, Object> params);
 
     @FormUrlEncoded
     @POST
-    Call<String> post(@Url String url, @FieldMap Map<String, String> params);
+    Call<String> post(@Url String url, @FieldMap WeakHashMap<String, Object> params);
 
     @FormUrlEncoded
     @PUT
-    Call<String> put(@Url String url, @FieldMap Map<String, String> params);
+    Call<String> put(@Url String url, @FieldMap WeakHashMap<String, Object> params);
 
     @DELETE
-    Call<String> delete(@Url String url, @QueryMap Map<String, String> params);
+    Call<String> delete(@Url String url, @QueryMap WeakHashMap<String, Object> params);
 
     @Streaming
     @GET
-    Call<RequestBody> download(@Url String url, @QueryMap Map<String, String> params);
+    Call<RequestBody> download(@Url String url, @QueryMap WeakHashMap<String, Object> params);
 
     @Multipart
     @POST

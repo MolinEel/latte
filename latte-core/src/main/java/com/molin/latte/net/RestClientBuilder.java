@@ -1,9 +1,12 @@
 package com.molin.latte.net;
 
+import android.content.Context;
+
 import com.molin.latte.net.callback.IError;
 import com.molin.latte.net.callback.IFailure;
 import com.molin.latte.net.callback.IRequest;
 import com.molin.latte.net.callback.ISuccess;
+import com.molin.latte.ui.LoaderStyle;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -17,13 +20,15 @@ import okhttp3.RequestBody;
 
 public class RestClientBuilder {
 
-    private String mUrl;
+    private String mUrl = null;
     private static final Map<String, Object> PARAMS = RestCreator.getParams();
-    private ISuccess mSuccess;
-    private IFailure mFailure;
-    private IError mError;
-    private IRequest mRequest;
-    private RequestBody mBody;
+    private ISuccess mSuccess = null;
+    private IFailure mFailure = null;
+    private IError mError = null;
+    private IRequest mRequest = null;
+    private RequestBody mBody = null;
+    private Context mContext = null;
+    private LoaderStyle mLoaderStyle = null;
 
     RestClientBuilder() {
     }
@@ -68,7 +73,19 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder loader(Context context, LoaderStyle loaderStyle) {
+        this.mContext = context;
+        this.mLoaderStyle = loaderStyle;
+        return this;
+    }
+
+    public final RestClientBuilder loader(Context context) {
+        this.mContext = context;
+        this.mLoaderStyle = LoaderStyle.BallSpinFadeLoaderIndicator;
+        return this;
+    }
+
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mSuccess, mFailure, mError, mRequest, mBody);
+        return new RestClient(mUrl, PARAMS, mSuccess, mFailure, mError, mRequest, mBody, mContext, mLoaderStyle);
     }
 }

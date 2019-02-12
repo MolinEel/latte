@@ -40,12 +40,12 @@ public class Configurator {
     public final void configure() {
         //在这里初始化icon
         initIcons();
-        LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY.name(), true);
+        LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY, true);
 
     }
 
     public final Configurator withHost(String host) {
-        LATTE_CONFIGS.put(ConfigKeys.API_HOST.name(), host);
+        LATTE_CONFIGS.put(ConfigKeys.API_HOST, host);
         return this;
     }
 
@@ -74,9 +74,13 @@ public class Configurator {
     }
 
     @SuppressWarnings("unchecked")
-    final <T> T getConfiguration(Enum<ConfigKeys> key) {
+    final <T> T getConfiguration(Object key) {
         checkConfiguration();
-        return (T) LATTE_CONFIGS.get(key.name());
+        final Object value = LATTE_CONFIGS.get(key);
+        if (value == null) {
+            throw new NullPointerException(key.toString() + " IS NULL");
+        }
+        return (T) LATTE_CONFIGS.get(key);
     }
 
 }
