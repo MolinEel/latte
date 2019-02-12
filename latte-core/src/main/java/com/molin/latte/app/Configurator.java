@@ -8,6 +8,8 @@ import com.joanzapata.iconify.Iconify;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import okhttp3.Interceptor;
+
 /**
  * Created by LEEP_COMPUTER on 2019/1/23.
  */
@@ -19,9 +21,11 @@ public class Configurator {
     private static final HashMap<Object, Object> LATTE_CONFIGS = new HashMap<>();
     //    字体库管理，封装使用
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
+    //管理拦截器，模拟请求
+    private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
 
     private Configurator() {
-        LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY.name(), false);
+        LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY, false);
     }
 
     final HashMap<Object, Object> getLatteConfigs() {
@@ -64,9 +68,21 @@ public class Configurator {
         }
     }
 
+    public final Configurator withInterceptor (Interceptor interceptor){
+        INTERCEPTORS.add(interceptor);
+        LATTE_CONFIGS.put(ConfigKeys.INTERCEPTOR,INTERCEPTORS);
+        return this;
+    }
+
+    public final Configurator withInterceptors(ArrayList<Interceptor> interceptors){
+        INTERCEPTORS.addAll(interceptors);
+        LATTE_CONFIGS.put(ConfigKeys.INTERCEPTOR,INTERCEPTORS);
+        return this;
+    }
+
     private void checkConfiguration() {
         //思想：尽可能让不需要修改的变量设置成final,可增加性能
-        final boolean isReady = (boolean) LATTE_CONFIGS.get(ConfigKeys.CONFIG_READY.name());
+        final boolean isReady = (boolean) LATTE_CONFIGS.get(ConfigKeys.CONFIG_READY);
         if (!isReady) {
             //手动抛出异常
             throw new RuntimeException("Configuration is not ready,please call configure");
