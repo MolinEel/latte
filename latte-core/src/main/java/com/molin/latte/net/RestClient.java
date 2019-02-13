@@ -8,8 +8,8 @@ import com.molin.latte.net.callback.IRequest;
 import com.molin.latte.net.callback.ISuccess;
 import com.molin.latte.net.callback.RequestCallbacks;
 import com.molin.latte.net.download.DownloadHandler;
-import com.molin.latte.ui.LatteLoader;
-import com.molin.latte.ui.LoaderStyle;
+import com.molin.latte.ui.loader.LatteLoader;
+import com.molin.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;
@@ -20,7 +20,6 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.http.Multipart;
 
 /**
  * Created by Molin on 2019/1/24.

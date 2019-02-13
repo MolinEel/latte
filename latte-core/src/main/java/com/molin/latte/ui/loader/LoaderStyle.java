@@ -1,4 +1,4 @@
-package com.molin.latte.ui;
+package com.molin.latte.ui.loader;
 
 /**
  * Created by Molin on 2019/2/12.

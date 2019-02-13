@@ -6,7 +6,7 @@ import com.molin.latte.net.callback.IError;
 import com.molin.latte.net.callback.IFailure;
 import com.molin.latte.net.callback.IRequest;
 import com.molin.latte.net.callback.ISuccess;
-import com.molin.latte.ui.LoaderStyle;
+import com.molin.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

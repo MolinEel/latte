@@ -1,4 +1,4 @@
-package com.molin.latte.ui;
+package com.molin.latte.ui.loader;
 
 import android.content.Context;
 

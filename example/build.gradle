@@ -23,4 +23,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     annotationProcessor  project(':latte-compiler')
     compile project(':latte-ec')
+//    compileOnly project(':latte-annotations')
 }

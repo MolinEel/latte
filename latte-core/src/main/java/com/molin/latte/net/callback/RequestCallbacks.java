@@ -2,8 +2,8 @@ package com.molin.latte.net.callback;
 
 import android.os.Handler;
 
-import com.molin.latte.ui.LatteLoader;
-import com.molin.latte.ui.LoaderStyle;
+import com.molin.latte.ui.loader.LatteLoader;
+import com.molin.latte.ui.loader.LoaderStyle;
 
 import retrofit2.Call;
 import retrofit2.Callback;
